@@ -7,5 +7,8 @@ Team : Tridev
 3. AbhinavRaj
 
 Idea : 
-This app is made with a target to provide users with generic medicine instead of branded medicine so that the overall cost spent on medicine doesn't go over-budget.
+
+Hume khud hi nahi pata hum kya kar rahe hai :P
+
+This app is made with a target to provide users with generic medicine instead of branded medicine reducing the overall cost spent on medicine.
 
