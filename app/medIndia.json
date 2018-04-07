@@ -2895,7 +2895,7 @@
   "quantitity": "200mg/400mg",
   "link": "https://www.medindia.net/drug-price/dimethicone/ulgel.htm",
   "med_type": "Tablet",
-  "manufacturer": "Dabur Pharma Limited"
+  "manufacturer": "Dabur Pharma\u00c2\u00a0Limited"
 }, {
   "name": "Ulozet",
   "weight": "20mg",
@@ -2922,7 +2922,7 @@
   "quantitity": "400mg/20mg/5ml",
   "link": "https://www.medindia.net/drug-price/dimethicone/ulsym.htm",
   "med_type": "Syrup ",
-  "manufacturer": "Materkin Formulation(Symbiosis Pharmaceuticals Pvt Ltd)"
+  "manufacturer": "Materkin Formulation\u00c2\u00a0(Symbiosis Pharmaceuticals Pvt Ltd)"
 }, {
   "name": "Ultidep",
   "weight": "20mg",
