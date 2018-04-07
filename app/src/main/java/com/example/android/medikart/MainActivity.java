@@ -33,7 +33,9 @@ import ir.mirrajabi.searchdialog.core.Searchable;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    String[] generic_name;
+    String[] generic_prize;
+    String[] generic_size;
     String[] name;
     String[] weight;
     String[] generic;
@@ -51,7 +53,26 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         // Add Fragments to adapter one by one
+        try {
+            JSONArray arr_gen = new JSONArray(loadJSONFromAssetGeneric());
+            //    ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
+            //    HashMap<String, String> m_li;
+            generic_name=new String[arr_gen.length()];
+            generic_prize=new String[arr_gen.length()];
+            generic_size=new String[arr_gen.length()];
+            price=new String[arr_gen.length()];
+            for(int i=0;i<arr_gen.length();i++){
+                JSONObject j_obj=arr_gen.getJSONObject(i);
+                generic_name[i] = j_obj.getString("Name");
+                generic_prize[i] = j_obj.getString("MRP");
+                generic_size[i] = j_obj.getString("Unit Size");
+            }
 
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(),String.valueOf(e), Toast.LENGTH_SHORT).show();
+        }
         adapter.addFragment(new FragmentOne(), "DASHBOARD");
         adapter.addFragment(new FragmentTwo(), "MEDCART");
         adapter.addFragment(new FragmentThree(),"NEWSFEED");
@@ -105,6 +126,24 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(getApplicationContext(),String.valueOf(e), Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    private String loadJSONFromAssetGeneric() {
+        String json = null;
+        try {
+            InputStream is = getApplicationContext().getAssets().open("Generic_med.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            Toast.makeText(getApplicationContext(), "LOL2", Toast.LENGTH_SHORT).show();
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
 
     }
 
