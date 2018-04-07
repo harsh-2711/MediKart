@@ -17,6 +17,12 @@ import android.widget.Toast;
 
 import com.example.android.medikart.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +32,16 @@ import ir.mirrajabi.searchdialog.core.SearchResultListener;
 import ir.mirrajabi.searchdialog.core.Searchable;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    String[] name;
+    String[] weight;
+    String[] generic;
+    String[] price;
+    String[] quantity;
+    String[] link;
+    String[] med_type;
+    String[] manufacturer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +73,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Database
+
+        try {
+            JSONArray arr = new JSONArray(loadJSONFromAsset());
+            //    ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
+            //    HashMap<String, String> m_li;
+            name=new String[arr.length()];
+            weight=new String[arr.length()];
+            generic=new String[arr.length()];
+            price=new String[arr.length()];
+            quantity=new String[arr.length()];
+            link=new String[arr.length()];
+            med_type=new String[arr.length()];
+            manufacturer=new String[arr.length()];
+            for(int i=0;i<arr.length();i++){
+                JSONObject j_obj=arr.getJSONObject(i);
+                name[i] = j_obj.getString("name");
+                weight[i] = j_obj.getString("weight");
+                generic[i] = j_obj.getString("generic");
+                price[i] = j_obj.getString("price");
+                price[i]=String.valueOf(10*Integer.parseInt(price[i])+5);
+                quantity[i] = j_obj.getString("quantitity");
+                link[i] = j_obj.getString("med_type");
+                med_type[i] = j_obj.getString("manufacturer");
+
+            }
+
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(),String.valueOf(e), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getApplicationContext().getAssets().open("medIndia.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            Toast.makeText(getApplicationContext(), "LOL2", Toast.LENGTH_SHORT).show();
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     private ArrayList<SearchModel> initData() {
         ArrayList<SearchModel> items = new ArrayList<>();
-        items.add(new SearchModel("Metacin"));
-        items.add(new SearchModel("Crocin"));
-        items.add(new SearchModel("Relispray"));
-        items.add(new SearchModel("Vicks"));
-        items.add(new SearchModel("Strepsils"));
-
+        for(int i = 0; i < name.length; i++)
+        {
+            items.add(new SearchModel(name[i]));
+        }
         return items;
     }
 
