@@ -11,11 +11,19 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.android.medikart.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ir.mirrajabi.searchdialog.SimpleSearchDialogCompat;
+import ir.mirrajabi.searchdialog.core.BaseSearchDialogCompat;
+import ir.mirrajabi.searchdialog.core.SearchResultListener;
+import ir.mirrajabi.searchdialog.core.Searchable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +42,35 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new SimpleSearchDialogCompat<>(MainActivity.this, "Search Medicine here..", "What are u looking for..", null,
+                        initData(), new SearchResultListener<SearchModel>() {
+                    @Override
+                    public void onSelected(BaseSearchDialogCompat baseSearchDialogCompat, SearchModel searchModel, int i) {
+                        Toast.makeText(MainActivity.this,"Selected",Toast.LENGTH_LONG).show();
+                        baseSearchDialogCompat.dismiss();
+                    }
+                }).show();
+            }
+        });
+
     }
+
+    private ArrayList<SearchModel> initData() {
+        ArrayList<SearchModel> items = new ArrayList<>();
+        items.add(new SearchModel("Metacin"));
+        items.add(new SearchModel("Crocin"));
+        items.add(new SearchModel("Relispray"));
+        items.add(new SearchModel("Vicks"));
+        items.add(new SearchModel("Strepsils"));
+
+        return items;
+    }
+
+
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
