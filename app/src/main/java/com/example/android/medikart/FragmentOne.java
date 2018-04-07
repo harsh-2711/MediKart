@@ -1,6 +1,7 @@
 package com.example.android.medikart;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -142,7 +143,7 @@ public class FragmentOne extends Fragment {
                         String gen_price = "";
                         String gen_weight = "";
                         if(temp == -1)
-                            gen = "Generic Medicine Not Available";
+                            gen = gen;
                         else
                         {
                             gen_price = generic_prize[temp];
@@ -161,7 +162,7 @@ public class FragmentOne extends Fragment {
                             branded_type1.setText(branded_type);
                             branded_manufacturer1.setText(branded_manufacturer);
                             generic_weight1.setText(" ");
-                            generic_price1.setText(" ");
+                            generic_price1.setText("N/A");
                             saved1.setText(" ");
                             profit1.setText(" ");
                         }
@@ -177,10 +178,21 @@ public class FragmentOne extends Fragment {
                             generic_price1.setText("Rs. "+gen_price);
                             branded_type1.setText(branded_type);
                             branded_manufacturer1.setText(branded_manufacturer);
-                            saved1.setText("You Saved : ");
                             profit = Float.parseFloat(branded_price) - Float.parseFloat(gen_price);
                             profit = (double)Math.round(profit * 1000d) / 1000d;
-                            profit1.setText(String.valueOf(profit));
+                            if(profit < 0)
+                            {
+                                saved1.setText("You Lose : ");
+                                saved1.setTextColor(Color.parseColor("#FF0000"));
+                                profit1.setTextColor(Color.parseColor("#FF0000"));
+                            }
+                            else
+                            {
+                                saved1.setText("You Saved : ");
+                                saved1.setTextColor(Color.parseColor("#00FF00"));
+                                profit1.setTextColor(Color.parseColor("#00FF00"));
+                            }
+                            profit1.setText(String.valueOf("Rs. "+profit));
                         }
 
                         baseSearchDialogCompat.dismiss();
