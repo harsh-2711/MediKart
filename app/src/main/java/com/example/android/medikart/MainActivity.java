@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new FragmentTwo(), "MEDCART");
         adapter.addFragment(new FragmentThree(),"NEWSFEED");
         viewPager.setAdapter(adapter);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
