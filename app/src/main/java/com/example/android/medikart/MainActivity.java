@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Add Fragments to adapter one by one
 
-        adapter.addFragment(new FragmentOne(), "FRAG1");
-        adapter.addFragment(new FragmentTwo(), "FRAG2");
-        adapter.addFragment(new FragmentThree(),"Dashboard");
+        adapter.addFragment(new FragmentOne(), "DASHBOARD");
+        adapter.addFragment(new FragmentTwo(), "MEDCART");
+        adapter.addFragment(new FragmentThree(),"NEWSFEED");
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
