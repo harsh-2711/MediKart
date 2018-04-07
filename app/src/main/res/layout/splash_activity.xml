@@ -4,15 +4,8 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <TextView
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:fontFamily="Raleway"
-        android:lineSpacingExtra="8sp"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="50sp" />
+        android:src="@drawable/spalshscreen"/>
 </RelativeLayout>
