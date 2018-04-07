@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cardView1Txt">A generic drug is a pharmaceutical drug that is equivalent to a brand-name product in dosage,...</string>
+    <string name="txt2">Prime Minister Narendra Modi on Monday indicated that his government may bring in a legal framework under which doctors will have to prescribe generic medicines...</string>
+    <string name="txt3">Experts say that more than a crore rupees are squeezed out from the people living in the rural families and uneducated sector...</string>
+    <string name="txt4">A lot of people have to travel long distances to avail of life-saving treatments like dialysis. In the absence of quality cardiac care in smaller towns and villages, man</string>
 </resources>

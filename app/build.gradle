@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.android.medikart"
         minSdkVersion 21
@@ -28,5 +28,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.android.support:design:27.1.1'
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.android.support:cardview-v7:27.1.1'
     compile 'com.github.mirrajabi:search-dialog:1.1'
 }
