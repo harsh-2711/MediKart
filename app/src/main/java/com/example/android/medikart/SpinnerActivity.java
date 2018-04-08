@@ -5,15 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class SpinnerActivity extends AppCompatActivity {
-
+    Spinner spinner;
+    String a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner);
+        Toast.makeText(this, a, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -27,8 +32,8 @@ public class SpinnerActivity extends AppCompatActivity {
 
         MenuItem item = menu.findItem(R.id.spinner);
 
-        Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
-
+        spinner = (Spinner) MenuItemCompat.getActionView(item);
+        a=spinner.getSelectedItem().toString();
 
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -44,4 +49,6 @@ public class SpinnerActivity extends AppCompatActivity {
         return true;
 
     }
+
+
 }
