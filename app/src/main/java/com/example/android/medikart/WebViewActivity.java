@@ -29,5 +29,9 @@ public class WebViewActivity extends AppCompatActivity {
         else if(no==4){
             wb.loadUrl(" http://www.gramvaani.org/?p=1629");
         }
+        else if(no==5){
+            wb.loadUrl("https://docs.google.com/document/d/1ZdYoyH1wFb_CDdjiViiTILHQxa_MI2jSUrY1OmJfJnI/edit?usp=sharing");
+            finish();
+        }
     }
 }
