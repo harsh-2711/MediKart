@@ -1,6 +1,7 @@
 package com.example.android.medikart;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,7 +35,7 @@ public class FragmentOne extends Fragment {
         // Required empty public constructor
     }
 
-
+    Button add;
     String[] generic_name;
     String[] generic_prize;
     String[] generic_size;
@@ -84,6 +85,7 @@ public class FragmentOne extends Fragment {
         saved1.setText(" ");
         profit1.setText(" ");
 
+        add = (Button) view.findViewById(R.id.addToCart);
         try {
             JSONArray arr_gen = new JSONArray(loadJSONFromAssetGeneric());
             //    ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
@@ -106,14 +108,15 @@ public class FragmentOne extends Fragment {
             Toast.makeText(getActivity(),String.valueOf(e), Toast.LENGTH_SHORT).show();
         }
 
+
         view.findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 new SimpleSearchDialogCompat<>(getActivity(), "Search Medicine here..", "What are u looking for..", null,
                         initData(), new SearchResultListener<SearchModel>() {
                     @Override
                     public void onSelected(BaseSearchDialogCompat baseSearchDialogCompat, SearchModel searchModel, int i) {
-                        String brand_name = searchModel.getTitle();
+                        final String brand_name = searchModel.getTitle();
 
                         int index = 0;
                         String branded_price = "";
@@ -197,15 +200,39 @@ public class FragmentOne extends Fragment {
                             }
                             profit1.setText(String.valueOf("Rs. "+profit));
                         }
+                        final int flag = temp;
+                        final String price = branded_price;
+                        final String generic_name = gen;
+                        final String generic_price = gen_price;
+                        add.setVisibility(View.VISIBLE);
+
+                        add.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                FragmentTwo fragment = new FragmentTwo();
+                                Bundle args = new Bundle();
+                                if(flag == -1)
+                                {
+                                    args.putString("name",brand_name);
+                                    args.putString("price",price);
+                                }
+                                else
+                                {
+                                    args.putString("name",generic_name);
+                                    args.putString("price",generic_price);
+                                }
+                                fragment.setArguments(args);
+
+                                getFragmentManager().beginTransaction().add(R.id.frag2, fragment).commit();
+                            }
+                        });
 
                         baseSearchDialogCompat.dismiss();
                     }
                 }).show();
 
-
             }
         });
-
         //Database
 
         try {

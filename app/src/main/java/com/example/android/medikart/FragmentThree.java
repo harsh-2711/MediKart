@@ -32,7 +32,7 @@ public class FragmentThree extends Fragment {
         // Required empty public constructor
     }
 
-    CardView cv1,cv2,cv3,cv4;
+    CardView cv1,cv2,cv3,cv4,cv5,cv6;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +46,8 @@ public class FragmentThree extends Fragment {
         cv2=(CardView)view.findViewById(R.id.card_view1);
         cv3=(CardView)view.findViewById(R.id.card_view2);
         cv4=(CardView)view.findViewById(R.id.card_view3);
+        cv5=(CardView)view.findViewById(R.id.card_view5);
+        cv6=(CardView)view.findViewById(R.id.card_view6);
         cv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +77,22 @@ public class FragmentThree extends Fragment {
             public void onClick(View v) {
                 Intent i=new Intent(getActivity(),WebViewActivity.class);
                 i.putExtra("Webpage",4);
+                startActivity(i);
+            }
+        });
+        cv5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),WebViewActivity.class);
+                i.putExtra("Webpage",1);
+                startActivity(i);
+            }
+        });
+        cv6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),WebViewActivity.class);
+                i.putExtra("Webpage",2);
                 startActivity(i);
             }
         });
