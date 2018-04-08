@@ -1,0 +1,15 @@
+
+
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TextFirst"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_weight="0"
+    android:fontFamily="serif"
+    android:hint="Generic medicine name"
+    android:textColor="@android:color/holo_orange_dark"
+    android:textSize="24sp" />
+
+
+

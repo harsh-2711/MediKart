@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +50,7 @@ public class FragmentOne extends Fragment {
     TextView branded_heading, generic_heading, branded_name1, generic_name1, branded_weight1, generic_weight1, branded_price1, generic_price1,
             branded_type1, branded_manufacturer1, saved1, profit1;
 
-
+    int l;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -91,6 +92,7 @@ public class FragmentOne extends Fragment {
             generic_prize=new String[arr_gen.length()];
             generic_size=new String[arr_gen.length()];
             price=new String[arr_gen.length()];
+            l=arr_gen.length();
             for(int i=0;i<arr_gen.length();i++){
                 JSONObject j_obj=arr_gen.getJSONObject(i);
                 generic_name[i] = j_obj.getString("Name");
@@ -112,6 +114,7 @@ public class FragmentOne extends Fragment {
                     @Override
                     public void onSelected(BaseSearchDialogCompat baseSearchDialogCompat, SearchModel searchModel, int i) {
                         String brand_name = searchModel.getTitle();
+
                         int index = 0;
                         String branded_price = "";
                         String branded_type = "";
@@ -132,7 +135,7 @@ public class FragmentOne extends Fragment {
                         branded_manufacturer = manufacturer[index];
                         branded_weight = weight[index];
                         int temp = -1;
-                        for(int j = 0; j < generic_name.length; j++)
+                        for(int j = 0; j < l; j++)
                         {
                             if(generic_name[j].toLowerCase().contains(gen.toLowerCase()))
                             {
@@ -198,6 +201,8 @@ public class FragmentOne extends Fragment {
                         baseSearchDialogCompat.dismiss();
                     }
                 }).show();
+
+
             }
         });
 
