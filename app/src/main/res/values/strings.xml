@@ -7,4 +7,11 @@
     <string name="txt2">Prime Minister Narendra Modi on Monday indicated that his government may bring in a legal framework under which doctors will have to prescribe generic medicines...</string>
     <string name="txt3">Experts say that more than a crore rupees are squeezed out from the people living in the rural families and uneducated sector...</string>
     <string name="txt4">A lot of people have to travel long distances to avail of life-saving treatments like dialysis. In the absence of quality cardiac care in smaller towns and villages, man</string>
+    <string-array name="spinner_list_item_array">
+        <item>Account Settings</item>
+        <item>Upload Image</item>
+        <item>Upload Prescription</item>
+        <item>Terms of Use</item>
+        <item>Contact Us</item>
+    </string-array>
 </resources>
