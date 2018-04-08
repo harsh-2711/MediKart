@@ -6,5 +6,27 @@
         <item name="colorPrimary">#000000</item>
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">#000000</item>
+        <item name="android:spinnerDropDownItemStyle">@style/YourCustomDropDownItemStyle</item>
+
     </style>
+
+    <style name="YourCustomDropDownItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+
+        <item name="android:textAppearance">@style/YourCustomDropDownItemTextStyle</item>
+        <item name="android:background">#FFF</item>
+    </style>
+
+    <style name="YourCustomDropDownItemTextStyle" parent="@android:style/Widget">
+
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:background">#FFF</item>
+
+    </style>
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:background">#d4d2d2</item>
+    </style>
+
 </resources>

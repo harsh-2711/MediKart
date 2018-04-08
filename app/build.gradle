@@ -31,5 +31,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.android.support:cardview-v7:27.1.1'
     compile 'com.github.mirrajabi:search-dialog:1.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 apply plugin: 'com.google.gms.google-services'
