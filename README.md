@@ -3,9 +3,9 @@
 
 Team : Tridev
 
-1. Harsh
-2. Jaydev
-3. AbhinavRaj
+1. Harsh Patel
+2. Jay Dev
+3. Abhinav Raj
 
 Idea : 
 
