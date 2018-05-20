@@ -1,9 +1,6 @@
 
 # MediKart
 
-Team : Tridev
-Team Numbeer : 10 
-
 DOTSLASH HACKATHON AT NIT SURAT 
 
 1. Harsh Patel
