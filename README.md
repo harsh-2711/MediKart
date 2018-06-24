@@ -13,6 +13,5 @@ Everyday thousands of people are tricked into buying high rated branded medicine
 
 Using the extensive trustworthy database from the government medical sources, one can easily scroll through the corresponding generic medicines and have them delivered right to your homea at faster and cheaper rates.
 
-
 This app is made with a target to provide users with generic medicine instead of branded medicine reducing the overall cost spent on medicine. Using Image Recognition, we can convert the branded prescription written by doctor into generic one and also suggest photos by the images of medicines quanitity uploaded. 
 
